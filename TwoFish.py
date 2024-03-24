@@ -613,7 +613,7 @@ def output_whitening2(formatted_ciphertext, subkeys_K):
 # Takes as an input:
 #   Plaintext - plaintext (hex in string)
 #   Raw_Key - key that we want to use (hex in string)
-#   mode - EBC or CBC (string)
+#   mode - ECB or CBC (string)
 # Returns:
 #   result - ciphertext (hex in string)
 
@@ -627,8 +627,8 @@ def TwoFish_encrypt(Plaintext, Raw_Key, mode):
     except ValueError:
         raise Exception("Please input only hexadecimal value as plaintext.")
 
-    if ((mode != 'EBC') and (mode != "CBC")):
-        raise Exception("Choose EBC or CBC as mode")
+    if ((mode != 'ECB') and (mode != "CBC")):
+        raise Exception("Choose ECB or CBC as mode")
 
     Key = format_Key(Raw_Key)
     PT = format_Plaintext(Plaintext)
@@ -675,7 +675,7 @@ def TwoFish_encrypt(Plaintext, Raw_Key, mode):
 # Takes as an input:
 #   Ciphertext - ciphertext (hex in string)
 #   Raw_Key - key that we want to use (hex in string)
-#   mode - EBC or CBC (string)
+#   mode - ECB or CBC (string)
 # Returns:
 #   result - plaintext (hex in string)
 
@@ -690,8 +690,8 @@ def TwoFish_decrypt(Ciphertext, Raw_Key, mode):
     except ValueError:
         raise Exception("Please input only hexadecimal value as cyphertext.")
 
-    if ((mode != 'EBC') and (mode != "CBC")):
-        raise Exception("Choose EBC or CBC as mode")
+    if ((mode != 'ECB') and (mode != "CBC")):
+        raise Exception("Choose ECB or CBC as mode")
 
     Key = format_Key(Raw_Key)
 
