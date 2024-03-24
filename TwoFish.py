@@ -132,12 +132,12 @@ def format_Key(raw_key):
 
 #-----------------------------------------------------------------------------------------------------------------------#
 
-# Function that converts text into a binary string
+# Function that converts text into a hexadecimal string
 # 
 # Takes as an input:
 #   text - string containing text to be converted (string)
 # Returns:
-#   key - result of formatting (hex in string)
+#   result - result of conversion (hex in string)
 
 def text_To_Hex(text):
     result = ""
@@ -145,6 +145,25 @@ def text_To_Hex(text):
     for char in text:
         number = ord(char)
         result = result + hex(number)[2:].zfill(2)
+
+    return result
+
+#-----------------------------------------------------------------------------------------------------------------------#
+
+# Function that converts hexadecimal string into text
+# 
+# Takes as an input:
+#   hex_string - string containing text to be converted (hex in string)
+# Returns:
+#   result - result of conversion (string)
+
+def hex_To_Text(hex_string):
+    result = ""
+
+    for i in range(0, len(hex_string), 2):
+        hex_pair = hex_string[i:i+2]
+        character = chr(int(hex_pair, 16))
+        result += character
 
     return result
 
